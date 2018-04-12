@@ -23,13 +23,16 @@ public class CustomerTest {
         String name = null;
         Customer customer = new Customer(name);
 
-        Movie movie = null;
+        int priceCode = 0;
+        String title = null;
+        Movie movie = new Movie(title, priceCode);
         int daysRented = 0;
         Rental rental = new Rental(movie, daysRented);
         customer.addRental(rental);
         assertEquals("Rental Record for null\n" +
-                "Amount owed is 0.0\n" +
-                "You earned 0 frequent renter pointers", customer.statement());
+                "\t2.0(null)\n" +
+                "Amount owed is 2.0\n" +
+                "You earned 1 frequent renter pointers", customer.statement());
 
     }
 }
