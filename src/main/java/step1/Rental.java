@@ -13,7 +13,7 @@ class Rental {
 		return daysRented;
 	}
 
-	double amountFor() {
+	double getPrice() {
 		// determine amounts for each line
 
 		final int daysRented = getDaysRented();
