@@ -30,9 +30,7 @@ class Customer {
 
         frequentRenterPoints = getFrequentRenterPoints();
 
-        for (Rental rental : rentals) {
-            result += rental.getStatementResult();
-        }
+        result = getFigures(result);
 
         for (Rental rental : rentals) {
 
@@ -42,6 +40,13 @@ class Customer {
         result += "Amount owed is " + String.valueOf(totalAmount) + "\n";
         result += "You earned " + String.valueOf(frequentRenterPoints) + " frequent renter pointers";
 
+        return result;
+    }
+
+    private String getFigures(String result) {
+        for (Rental rental : rentals) {
+            result += rental.getStatementResult();
+        }
         return result;
     }
 
