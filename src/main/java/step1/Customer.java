@@ -1,7 +1,6 @@
 package step1;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 class Customer {
@@ -27,12 +26,8 @@ class Customer {
 
 		for (Rental rental:rentals) {
 			double thisAmount = rental.getPrice();
+			frequentRenterPoints += getFrequentRenterPoints(rental);
 
-			// add frequent renter points
-			frequentRenterPoints++;
-			// add bonus for a two day new release rental
-			if ((rental.getMovie().getPriceCode() == Movie.NEW_RELEASE) && rental.getDaysRented() > 1)
-				frequentRenterPoints++;
 			// show figures
 			result += "\t" +  String.valueOf(thisAmount) + "(" + rental.getMovie().getTitle() + ")" + "\n";
 
@@ -43,6 +38,16 @@ class Customer {
 		result += "You earned " + String.valueOf(frequentRenterPoints) + " frequent renter pointers";
 
 		return result;
+	}
+
+	private int getFrequentRenterPoints(Rental rental) {
+		// add frequent renter points
+		int frequentRenterPoints = 0;
+		frequentRenterPoints++;
+		// add bonus for a two day new release rental
+		if ((rental.getMovie().getPriceCode() == Movie.NEW_RELEASE) && rental.getDaysRented() > 1)
+            frequentRenterPoints++;
+		return frequentRenterPoints;
 	}
 
 }
