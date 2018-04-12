@@ -47,4 +47,15 @@ public class CustomerTest {
                 "You earned 1 frequent renter pointers", customer.statement());
 
     }
+
+    @Test
+    public void testNewReleaseMovieFor3Days(){
+
+        addRental(Movie.NEW_RELEASE, 3);
+        assertEquals("Rental Record for UNIMPORTANT_NAME\n" +
+                "\t9.0(null)\n" +
+                "Amount owed is 9.0\n" +
+                "You earned 2 frequent renter pointers", customer.statement());
+
+    }
 }
