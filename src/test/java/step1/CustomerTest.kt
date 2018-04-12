@@ -6,6 +6,7 @@ import org.junit.Assert.*
 
 class CustomerTest {
     private val name = "NAME_NOT_IMPORTANT"
+    private val ONE_DAY = 1
     private val TWO_DAYS = 2
     private val THREE_DAYS = 3
     private val FOUR_DAYS = 4
@@ -110,17 +111,41 @@ You earned 1 frequent renter pointers""",
     }
 
     @Test
+    fun statementForChildrenForLessThan2Days() {
+
+        val rental = createRentalFor(Movie.CHILDRENS, ONE_DAY)
+        customer.addRental(rental)
+
+        assertEquals(
+                """Rental Record for NAME_NOT_IMPORTANT
+	1.5()
+Amount owed is 1.5
+You earned 1 frequent renter pointers""",
+                customer.statement())
+    }
+
+    @Test
     fun statementForLoop() {
 
-        customer.addRental(createRentalFor(Movie.REGULAR, TWO_DAYS))
-        customer.addRental(createRentalFor(Movie.CHILDRENS, FOUR_DAYS))
+        customer.addRental(createRentalFor(Movie.REGULAR, 2))
+        customer.addRental(createRentalFor(Movie.REGULAR, 3))
+
+        customer.addRental(createRentalFor(Movie.CHILDRENS, 3))
+        customer.addRental(createRentalFor(Movie.CHILDRENS, 4))
+
+        customer.addRental(createRentalFor(Movie.NEW_RELEASE, 1))
+        customer.addRental(createRentalFor(Movie.NEW_RELEASE, 4))
 
         assertEquals(
                 """Rental Record for NAME_NOT_IMPORTANT
 	2.0()
+	3.5()
+	1.5()
 	3.0()
-Amount owed is 5.0
-You earned 2 frequent renter pointers""",
+	3.0()
+	12.0()
+Amount owed is 25.0
+You earned 7 frequent renter pointers""",
                 customer.statement())
     }
 
