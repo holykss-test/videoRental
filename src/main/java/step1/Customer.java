@@ -28,9 +28,7 @@ class Customer {
 
         result = getFigures(result);
 
-        double totalAmount = getTotalAmount();
-
-        result += "Amount owed is " + String.valueOf(totalAmount) + "\n";
+        result += "Amount owed is " + String.valueOf(getTotalAmount()) + "\n";
         result += "You earned " + String.valueOf(getFrequentRenterPoints()) + " frequent renter pointers";
 
         return result;
