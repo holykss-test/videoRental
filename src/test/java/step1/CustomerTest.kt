@@ -56,12 +56,11 @@ You earned 1 frequent renter pointers""",
     }
 
     private fun createRegularRentalFor(daysRented: Int): Rental {
-        val priceCode = 0
         val title = ""
-        val movie = Movie(title, priceCode)
-
+        val movie = Movie(title, Movie.REGULAR)
         val rental = Rental(movie, daysRented)
         return rental
     }
+
 
 }
