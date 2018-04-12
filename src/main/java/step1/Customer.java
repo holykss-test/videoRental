@@ -1,5 +1,7 @@
 package step1;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,19 +27,23 @@ class Customer {
 		String result = "Rental Record for " + getName() + "\n";
 
 		for (Rental rental:rentals) {
-			double thisAmount = rental.getPrice();
 			frequentRenterPoints += getFrequentRenterPoints(rental);
 
 			// show figures
-			result += "\t" +  String.valueOf(thisAmount) + "(" + rental.getMovie().getTitle() + ")" + "\n";
+			result += getStatementResult(rental);
 
-			totalAmount += thisAmount;
+			totalAmount += rental.getPrice();
 		}
 
 		result += "Amount owed is " + String.valueOf(totalAmount) + "\n";
 		result += "You earned " + String.valueOf(frequentRenterPoints) + " frequent renter pointers";
 
 		return result;
+	}
+
+	@NotNull
+	private String getStatementResult(Rental rental) {
+		return "\t" +  String.valueOf(rental.getPrice()) + "(" + rental.getMovie().getTitle() + ")" + "\n";
 	}
 
 	private int getFrequentRenterPoints(Rental rental) {
