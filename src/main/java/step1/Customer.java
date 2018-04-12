@@ -26,13 +26,18 @@ class Customer {
     ;
 
     public String statement() {
-        String result = "Rental Record for " + getName() + "\n";
+        String result = getHeader();
 
         result += getFigures();
 
         result += getTail();
 
         return result;
+    }
+
+    @NotNull
+    private String getHeader() {
+        return "Rental Record for " + getName() + "\n";
     }
 
     @NotNull
