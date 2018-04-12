@@ -28,8 +28,7 @@ class Customer {
 
 		while ( iterator.hasNext() ) {
 			Rental rental = (Rental) iterator.next();
-			double thisAmount = 0;
-			thisAmount = rental.getPrice();
+			double thisAmount = rental.getPrice();
 
 			// add frequent renter points
 			frequentRenterPoints++;
