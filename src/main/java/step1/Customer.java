@@ -1,5 +1,7 @@
 package step1;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,9 +30,15 @@ class Customer {
 
         result += getFigures();
 
-        result += "Amount owed is " + String.valueOf(getTotalAmount()) + "\n";
-        result += "You earned " + String.valueOf(getFrequentRenterPoints()) + " frequent renter pointers";
+        result += getTail();
 
+        return result;
+    }
+
+    @NotNull
+    private String getTail() {
+        String result = "Amount owed is " + String.valueOf(getTotalAmount()) + "\n";
+        result += "You earned " + String.valueOf(getFrequentRenterPoints()) + " frequent renter pointers";
         return result;
     }
 
