@@ -29,7 +29,7 @@ class Customer {
 		while ( iterator.hasNext() ) {
 			Rental each = (Rental) iterator.next();
 			double thisAmount = 0;
-			thisAmount = amountFor(thisAmount, each);
+			thisAmount = amountFor(each);
 
 			// add frequent renter points
 			frequentRenterPoints++;
@@ -48,9 +48,10 @@ class Customer {
 		return result;
 	}
 
-	private double amountFor(double thisAmount, Rental each) {
+	private double amountFor(Rental each) {
 		// determine amounts for each line
 
+		int thisAmount = 0;
 		switch (each.getMovie().getPriceCode()) {
         case Movie.REGULAR:
             thisAmount += 2;
