@@ -24,14 +24,14 @@ class Customer {
     ;
 
     public String statement() {
-        double totalAmount = 0;
-        int frequentRenterPoints = 0;
         String result = "Rental Record for " + getName() + "\n";
 
+        int frequentRenterPoints = 0;
         frequentRenterPoints = getFrequentRenterPoints();
 
         result = getFigures(result);
 
+        double totalAmount = 0;
         totalAmount = getTotalAmount(totalAmount);
 
         result += "Amount owed is " + String.valueOf(totalAmount) + "\n";
