@@ -20,7 +20,7 @@ class Rental {
 		return movie.amountFor(daysRented);
 	}
 
-	private Movie getMovie() {
-		return getMovie();
+	public Movie getMovie() {
+		return movie;
 	}
 }
