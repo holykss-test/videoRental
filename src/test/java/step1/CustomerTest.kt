@@ -95,8 +95,6 @@ You earned 1 frequent renter pointers""",
                 customer.statement())
     }
 
-
-
     @Test
     fun statementForChildrenForFourDays() {
 
@@ -110,4 +108,20 @@ Amount owed is 3.0
 You earned 1 frequent renter pointers""",
                 customer.statement())
     }
+
+    @Test
+    fun statementForLoop() {
+
+        customer.addRental(createRentalFor(Movie.REGULAR, TWO_DAYS))
+        customer.addRental(createRentalFor(Movie.CHILDRENS, FOUR_DAYS))
+
+        assertEquals(
+                """Rental Record for NAME_NOT_IMPORTANT
+	2.0()
+	3.0()
+Amount owed is 5.0
+You earned 2 frequent renter pointers""",
+                customer.statement())
+    }
+
 }
