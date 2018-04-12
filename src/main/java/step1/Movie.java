@@ -4,7 +4,8 @@ public class Movie {
 	public static final int CHILDRENS = 2;
 	public static final int REGULAR = 0;
 	public static final int NEW_RELEASE = 1;
-	
+	final int DEFAULT_POINTS = 1;
+
 	private String title;
 	private int priceCode;
 
@@ -49,11 +50,7 @@ public class Movie {
 	}
 
 	int getFrequentRenterPoints(int daysRented) {
-		int frequentRenterPoints = 1;
-
-		// add bonus for a two day new release rental
-		frequentRenterPoints += getBonusPoints(daysRented);
-		return frequentRenterPoints;
+		return DEFAULT_POINTS + getBonusPoints(daysRented);
 	}
 
 	private int getBonusPoints(int daysRented) {
