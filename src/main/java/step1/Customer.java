@@ -4,38 +4,46 @@ import java.util.ArrayList;
 import java.util.List;
 
 class Customer {
-	private String name;
-	private List<Rental> rentals = new ArrayList<>();
+    private String name;
+    private List<Rental> rentals = new ArrayList<>();
 
-	public Customer(String name) {
-		this.name = name;
-	};
+    public Customer(String name) {
+        this.name = name;
+    }
 
-	public void addRental(Rental rental) {
-		rentals.add(rental);
-	}
+    ;
 
-	public String getName() {
-		return name;
-	};
+    public void addRental(Rental rental) {
+        rentals.add(rental);
+    }
 
-	public String statement() {
-		double totalAmount = 0;
-		int frequentRenterPoints = 0;
-		String result = "Rental Record for " + getName() + "\n";
+    public String getName() {
+        return name;
+    }
 
-		for (Rental rental:rentals) {
-			frequentRenterPoints += rental.getFrequentRenterPoints();
+    ;
 
-			result += rental.getStatementResult();
+    public String statement() {
+        double totalAmount = 0;
+        int frequentRenterPoints = 0;
+        String result = "Rental Record for " + getName() + "\n";
 
-			totalAmount += rental.getPrice();
-		}
+        for (Rental rental : rentals) {
+            frequentRenterPoints += rental.getFrequentRenterPoints();
+        }
+        for (Rental rental : rentals) {
 
-		result += "Amount owed is " + String.valueOf(totalAmount) + "\n";
-		result += "You earned " + String.valueOf(frequentRenterPoints) + " frequent renter pointers";
+            result += rental.getStatementResult();
+        }
+        for (Rental rental : rentals) {
 
-		return result;
-	}
+            totalAmount += rental.getPrice();
+        }
+
+        result += "Amount owed is " + String.valueOf(totalAmount) + "\n";
+        result += "You earned " + String.valueOf(frequentRenterPoints) + " frequent renter pointers";
+
+        return result;
+    }
 
 }
