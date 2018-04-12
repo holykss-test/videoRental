@@ -13,17 +13,17 @@ class Rental {
 		return daysRented;
 	}
 
-	public Movie getMovie() {
-		return movie;
-	}
-
 	double amountFor() {
 		// determine amounts for each line
 
 		final int daysRented = getDaysRented();
+		return amountFor(daysRented);
+	}
+
+	double amountFor(int daysRented) {
 		double thisAmount = 0;
 
-		switch (getMovie().getPriceCode()) {
+		switch (movie.getPriceCode()) {
         case Movie.REGULAR:
             thisAmount += 2;
             if (daysRented > 2)
@@ -41,5 +41,9 @@ class Rental {
             break;
         }
 		return thisAmount;
+	}
+
+	private Movie getMovie() {
+		return getMovie();
 	}
 }
