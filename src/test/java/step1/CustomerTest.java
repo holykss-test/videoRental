@@ -22,10 +22,7 @@ public class CustomerTest {
     @Test
     public void testRegularMovieFor2Days(){
 
-        int daysRented = 2;
-        int priceCode = Movie.REGULAR;
-
-        addRental(priceCode, daysRented);
+        addRental(Movie.REGULAR, 2);
         assertEquals("Rental Record for null\n" +
                 "\t2.0(null)\n" +
                 "Amount owed is 2.0\n" +
@@ -41,12 +38,9 @@ public class CustomerTest {
     }
 
     @Test
-    public void testRegularMovieFor3Days() throws Exception{
+    public void testRegularMovieFor3Days(){
 
-        int daysRented = 3;
-        int priceCode = Movie.REGULAR;
-
-        addRental(priceCode, daysRented);
+        addRental(Movie.REGULAR, 3);
         assertEquals("Rental Record for null\n" +
                 "\t3.5(null)\n" +
                 "Amount owed is 3.5\n" +
