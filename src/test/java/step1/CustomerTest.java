@@ -6,11 +6,12 @@ import static org.junit.Assert.*;
 
 public class CustomerTest {
 
+    String name = null;
+    Customer customer = new Customer(name);
 
     @Test
-    public void testForEmptyRentals() throws Exception{
-        String name = null;
-        Customer customer = new Customer(name);
+    public void testForEmptyRentals(){
+
 
         assertEquals("Rental Record for null\n" +
                 "Amount owed is 0.0\n" +
@@ -19,9 +20,8 @@ public class CustomerTest {
     }
 
     @Test
-    public void testRegularMovieFor2Days() throws Exception{
-        String name = null;
-        Customer customer = new Customer(name);
+    public void testRegularMovieFor2Days(){
+
 
         int priceCode = Movie.REGULAR;
         String title = null;
@@ -38,8 +38,7 @@ public class CustomerTest {
 
     @Test
     public void testRegularMovieFor3Days() throws Exception{
-        String name = null;
-        Customer customer = new Customer(name);
+
 
         int priceCode = Movie.REGULAR;
         String title = null;
