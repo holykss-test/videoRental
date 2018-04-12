@@ -16,10 +16,16 @@ class CustomerTest {
                 "You earned 0 frequent renter pointers", customer.statement())
     }
 
+
+    /**
+     * 중복을 제거하려면 추상화가 필요하다.
+     * ㅇㅣ름을 짓는 순간 추상화를 하고 있는 것이다.
+     */
     @Test
     fun statementForRegularMovieForMoreThan() {
 
-        val rental = Rental(Movie("", 0), 2)
+        val daysRented = 2
+        val rental = createRegularRentalFor(daysRented)
         customer.addRental(rental)
 
         assertEquals(
@@ -36,12 +42,8 @@ You earned 1 frequent renter pointers""",
     @Test
     fun statementForRegularMovieForMoreThan2Days() {
 
-        val priceCode = 0
-        val title = ""
-        val movie = Movie(title, priceCode)
-
         val daysRented = 3
-        val rental = Rental(movie, daysRented)
+        val rental = createRegularRentalFor(daysRented)
         customer.addRental(rental)
 
         assertEquals(
@@ -50,6 +52,15 @@ You earned 1 frequent renter pointers""",
 Amount owed is 3.5
 You earned 1 frequent renter pointers""",
                 customer.statement())
+    }
+
+    private fun createRegularRentalFor(daysRented: Int): Rental {
+        val priceCode = 0
+        val title = ""
+        val movie = Movie(title, priceCode)
+
+        val rental = Rental(movie, daysRented)
+        return rental
     }
 
 }
