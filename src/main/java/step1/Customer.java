@@ -23,11 +23,9 @@ class Customer {
 	public String statement() {
 		double totalAmount = 0;
 		int frequentRenterPoints = 0;
-		Iterator<Rental> iterator = rentals.iterator();
 		String result = "Rental Record for " + getName() + "\n";
 
-		while ( iterator.hasNext() ) {
-			Rental rental = (Rental) iterator.next();
+		for (Rental rental:rentals) {
 			double thisAmount = rental.getPrice();
 
 			// add frequent renter points
