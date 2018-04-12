@@ -26,14 +26,12 @@ class Customer {
     public String statement() {
         String result = "Rental Record for " + getName() + "\n";
 
-        int frequentRenterPoints = getFrequentRenterPoints();
-
         result = getFigures(result);
 
         double totalAmount = getTotalAmount();
 
         result += "Amount owed is " + String.valueOf(totalAmount) + "\n";
-        result += "You earned " + String.valueOf(frequentRenterPoints) + " frequent renter pointers";
+        result += "You earned " + String.valueOf(getFrequentRenterPoints()) + " frequent renter pointers";
 
         return result;
     }
