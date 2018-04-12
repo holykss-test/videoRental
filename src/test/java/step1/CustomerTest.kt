@@ -9,7 +9,7 @@ class CustomerTest {
     private val customer = Customer(name)
 
     @Test
-    fun testCreate() {
+    fun statementForNoRental() {
 
         assertEquals("Rental Record for NAME_NOT_IMPORTANT\n" +
                 "Amount owed is 0.0\n" +
