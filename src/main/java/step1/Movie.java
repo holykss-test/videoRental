@@ -52,7 +52,7 @@ public class Movie {
 		int frequentRenterPoints = 1;
 
 		// add bonus for a two day new release rental
-		frequentRenterPoints = getBonusPoints(daysRented);
+		frequentRenterPoints += getBonusPoints(daysRented);
 		return frequentRenterPoints;
 	}
 
