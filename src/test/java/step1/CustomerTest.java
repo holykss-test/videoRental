@@ -12,7 +12,9 @@ public class CustomerTest {
         String name = null;
         Customer customer = new Customer(name);
 
-        assertEquals(null, customer.statement());
+        assertEquals("Rental Record for null\n" +
+                "Amount owed is 0.0\n" +
+                "You earned 0 frequent renter pointers", customer.statement());
 
     }
 
