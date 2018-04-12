@@ -6,7 +6,11 @@ import org.junit.Assert.*
 
 class CustomerTest {
     private val name = "NAME_NOT_IMPORTANT"
+    private val TWO_DAYS = 2
+    private val THREE_DAYS = 3
+
     private val customer = Customer(name)
+
 
     @Test
     fun statementForNoRental() {
@@ -16,7 +20,6 @@ class CustomerTest {
                 "You earned 0 frequent renter pointers", customer.statement())
     }
 
-
     /**
      * 중복을 제거하려면 추상화가 필요하다.
      * ㅇㅣ름을 짓는 순간 추상화를 하고 있는 것이다.
@@ -24,7 +27,7 @@ class CustomerTest {
     @Test
     fun statementForRegularMovieForMoreThan() {
 
-        val daysRented = 2
+        val daysRented = TWO_DAYS
         val rental = createRegularRentalFor(daysRented)
         customer.addRental(rental)
 
@@ -42,7 +45,7 @@ You earned 1 frequent renter pointers""",
     @Test
     fun statementForRegularMovieForMoreThan2Days() {
 
-        val daysRented = 3
+        val daysRented = THREE_DAYS
         val rental = createRegularRentalFor(daysRented)
         customer.addRental(rental)
 
