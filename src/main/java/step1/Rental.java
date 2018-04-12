@@ -20,8 +20,8 @@ class Rental {
 	double amountFor() {
 		// determine amounts for each line
 
-		double thisAmount = 0;
 		final int daysRented = getDaysRented();
+		double thisAmount = 0;
 
 		switch (getMovie().getPriceCode()) {
         case Movie.REGULAR:
