@@ -67,7 +67,7 @@ You earned 1 frequent renter pointers""",
     }
 
     @Test
-    fun statementForNewReleaseFor() {
+    fun statementForNewRelease() {
 
         val rental = createRentalFor(Movie.NEW_RELEASE, THREE_DAYS)
         customer.addRental(rental)
@@ -77,6 +77,20 @@ You earned 1 frequent renter pointers""",
 	9.0()
 Amount owed is 9.0
 You earned 2 frequent renter pointers""",
+                customer.statement())
+    }
+
+    @Test
+    fun statementForChildrenForThreeDays() {
+
+        val rental = createRentalFor(Movie.CHILDRENS, THREE_DAYS)
+        customer.addRental(rental)
+
+        assertEquals(
+                """Rental Record for NAME_NOT_IMPORTANT
+	1.5()
+Amount owed is 1.5
+You earned 1 frequent renter pointers""",
                 customer.statement())
     }
 
