@@ -8,6 +8,7 @@ class CustomerTest {
     private val name = "NAME_NOT_IMPORTANT"
     private val TWO_DAYS = 2
     private val THREE_DAYS = 3
+    private val FOUR_DAYS = 4
 
     private val customer = Customer(name)
 
@@ -94,4 +95,19 @@ You earned 1 frequent renter pointers""",
                 customer.statement())
     }
 
+
+
+    @Test
+    fun statementForChildrenForFourDays() {
+
+        val rental = createRentalFor(Movie.CHILDRENS, FOUR_DAYS)
+        customer.addRental(rental)
+
+        assertEquals(
+                """Rental Record for NAME_NOT_IMPORTANT
+	3.0()
+Amount owed is 3.0
+You earned 1 frequent renter pointers""",
+                customer.statement())
+    }
 }
