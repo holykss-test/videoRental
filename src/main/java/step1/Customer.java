@@ -30,8 +30,7 @@ class Customer {
 
         result = getFigures(result);
 
-        double totalAmount = 0;
-        totalAmount = getTotalAmount(totalAmount);
+        double totalAmount = getTotalAmount();
 
         result += "Amount owed is " + String.valueOf(totalAmount) + "\n";
         result += "You earned " + String.valueOf(frequentRenterPoints) + " frequent renter pointers";
@@ -39,7 +38,8 @@ class Customer {
         return result;
     }
 
-    private double getTotalAmount(double totalAmount) {
+    private double getTotalAmount() {
+        double totalAmount = 0;
         for (Rental rental : rentals) {
             totalAmount += rental.getPrice();
         }
