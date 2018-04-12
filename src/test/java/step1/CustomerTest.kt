@@ -56,11 +56,28 @@ You earned 1 frequent renter pointers""",
     }
 
     private fun createRegularRentalFor(daysRented: Int): Rental {
-        val title = ""
-        val movie = Movie(title, Movie.REGULAR)
+        val priceCode = Movie.REGULAR
+        return createRentalFor(priceCode, daysRented)
+    }
+
+    private fun createRentalFor(priceCode: Int, daysRented: Int): Rental {
+        val movie = Movie("", priceCode)
         val rental = Rental(movie, daysRented)
         return rental
     }
 
+    @Test
+    fun statementForNewReleaseFor() {
+
+        val rental = createRegularRentalFor(THREE_DAYS)
+        customer.addRental(rental)
+
+        assertEquals(
+                """Rental Record for NAME_NOT_IMPORTANT
+	3.5()
+Amount owed is 3.5
+You earned 1 frequent renter pointers""",
+                customer.statement())
+    }
 
 }
