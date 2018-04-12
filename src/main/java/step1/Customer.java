@@ -26,8 +26,7 @@ class Customer {
     public String statement() {
         String result = "Rental Record for " + getName() + "\n";
 
-        int frequentRenterPoints = 0;
-        frequentRenterPoints = getFrequentRenterPoints();
+        int frequentRenterPoints = getFrequentRenterPoints();
 
         result = getFigures(result);
 
