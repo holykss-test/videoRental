@@ -29,7 +29,7 @@ class Customer {
 		while ( iterator.hasNext() ) {
 			Rental each = (Rental) iterator.next();
 			double thisAmount = 0;
-			thisAmount = each.amountFor();
+			thisAmount = each.movie.amountFor(each);
 
 			// add frequent renter points
 			frequentRenterPoints++;
