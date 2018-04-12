@@ -6,14 +6,14 @@ import static org.junit.Assert.*;
 
 public class CustomerTest {
 
-    String name = null;
+    String name = "UNIMPORTANT_NAME";
     Customer customer = new Customer(name);
 
     @Test
     public void testForEmptyRentals(){
 
 
-        assertEquals("Rental Record for null\n" +
+        assertEquals("Rental Record for UNIMPORTANT_NAME\n" +
                 "Amount owed is 0.0\n" +
                 "You earned 0 frequent renter pointers", customer.statement());
 
@@ -23,7 +23,7 @@ public class CustomerTest {
     public void testRegularMovieFor2Days(){
 
         addRental(Movie.REGULAR, 2);
-        assertEquals("Rental Record for null\n" +
+        assertEquals("Rental Record for UNIMPORTANT_NAME\n" +
                 "\t2.0(null)\n" +
                 "Amount owed is 2.0\n" +
                 "You earned 1 frequent renter pointers", customer.statement());
@@ -41,7 +41,7 @@ public class CustomerTest {
     public void testRegularMovieFor3Days(){
 
         addRental(Movie.REGULAR, 3);
-        assertEquals("Rental Record for null\n" +
+        assertEquals("Rental Record for UNIMPORTANT_NAME\n" +
                 "\t3.5(null)\n" +
                 "Amount owed is 3.5\n" +
                 "You earned 1 frequent renter pointers", customer.statement());
