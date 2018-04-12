@@ -27,8 +27,7 @@ class CustomerTest {
     @Test
     fun statementForRegularMovieForMoreThan() {
 
-        val daysRented = TWO_DAYS
-        val rental = createRegularRentalFor(daysRented)
+        val rental = createRegularRentalFor(TWO_DAYS)
         customer.addRental(rental)
 
         assertEquals(
@@ -45,8 +44,7 @@ You earned 1 frequent renter pointers""",
     @Test
     fun statementForRegularMovieForMoreThan2Days() {
 
-        val daysRented = THREE_DAYS
-        val rental = createRegularRentalFor(daysRented)
+        val rental = createRegularRentalFor(THREE_DAYS)
         customer.addRental(rental)
 
         assertEquals(
