@@ -26,13 +26,7 @@ class Customer {
     ;
 
     public String statement() {
-        String result = getHeader();
-
-        result += getFigures();
-
-        result += getTail();
-
-        return result;
+        return getHeader() + getFigures() + getTail();
     }
 
     @NotNull
