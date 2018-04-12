@@ -1,5 +1,7 @@
 package step1;
 
+import org.jetbrains.annotations.NotNull;
+
 class Rental {
 	private Movie movie;
 	private int daysRented;
@@ -22,5 +24,20 @@ class Rental {
 
 	public Movie getMovie() {
 		return movie;
+	}
+
+	int getFrequentRenterPoints() {
+		// add frequent renter points
+		int frequentRenterPoints = 0;
+		frequentRenterPoints++;
+		// add bonus for a two day new release rental
+		if ((getMovie().getPriceCode() == Movie.NEW_RELEASE) && getDaysRented() > 1)
+            frequentRenterPoints++;
+		return frequentRenterPoints;
+	}
+
+	@NotNull
+	String getStatementResult() {
+		return "\t" +  String.valueOf(getPrice()) + "(" + getMovie().getTitle() + ")" + "\n";
 	}
 }

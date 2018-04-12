@@ -1,7 +1,5 @@
 package step1;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,10 +25,9 @@ class Customer {
 		String result = "Rental Record for " + getName() + "\n";
 
 		for (Rental rental:rentals) {
-			frequentRenterPoints += getFrequentRenterPoints(rental);
+			frequentRenterPoints += rental.getFrequentRenterPoints();
 
-			// show figures
-			result += getStatementResult(rental);
+			result += rental.getStatementResult();
 
 			totalAmount += rental.getPrice();
 		}
@@ -39,21 +36,6 @@ class Customer {
 		result += "You earned " + String.valueOf(frequentRenterPoints) + " frequent renter pointers";
 
 		return result;
-	}
-
-	@NotNull
-	private String getStatementResult(Rental rental) {
-		return "\t" +  String.valueOf(rental.getPrice()) + "(" + rental.getMovie().getTitle() + ")" + "\n";
-	}
-
-	private int getFrequentRenterPoints(Rental rental) {
-		// add frequent renter points
-		int frequentRenterPoints = 0;
-		frequentRenterPoints++;
-		// add bonus for a two day new release rental
-		if ((rental.getMovie().getPriceCode() == Movie.NEW_RELEASE) && rental.getDaysRented() > 1)
-            frequentRenterPoints++;
-		return frequentRenterPoints;
 	}
 
 }
