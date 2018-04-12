@@ -19,7 +19,7 @@ class CustomerTest {
 
         assertEquals("Rental Record for NAME_NOT_IMPORTANT\n" +
                 "Amount owed is 0.0\n" +
-                "You earned 0 frequent renter pointers", customer.statement())
+                "You earned 0 frequent renter pointers", customer.statement(statement))
     }
 
     /**
@@ -37,7 +37,7 @@ class CustomerTest {
 	2.0()
 Amount owed is 2.0
 You earned 1 frequent renter pointers""",
-                customer.statement())
+                customer.statement(statement))
     }
 
     /**
@@ -54,7 +54,7 @@ You earned 1 frequent renter pointers""",
 	3.5()
 Amount owed is 3.5
 You earned 1 frequent renter pointers""",
-                customer.statement())
+                customer.statement(statement))
     }
 
     private fun createRegularRentalFor(daysRented: Int): Rental {
@@ -79,7 +79,7 @@ You earned 1 frequent renter pointers""",
 	9.0()
 Amount owed is 9.0
 You earned 2 frequent renter pointers""",
-                customer.statement())
+                customer.statement(statement))
     }
 
     @Test
@@ -93,7 +93,7 @@ You earned 2 frequent renter pointers""",
 	1.5()
 Amount owed is 1.5
 You earned 1 frequent renter pointers""",
-                customer.statement())
+                customer.statement(statement))
     }
 
     @Test
@@ -107,7 +107,7 @@ You earned 1 frequent renter pointers""",
 	3.0()
 Amount owed is 3.0
 You earned 1 frequent renter pointers""",
-                customer.statement())
+                customer.statement(statement))
     }
 
     @Test
@@ -121,7 +121,7 @@ You earned 1 frequent renter pointers""",
 	1.5()
 Amount owed is 1.5
 You earned 1 frequent renter pointers""",
-                customer.statement())
+                customer.statement(statement))
     }
 
     @Test
@@ -146,7 +146,7 @@ You earned 1 frequent renter pointers""",
 	12.0()
 Amount owed is 25.0
 You earned 7 frequent renter pointers""",
-                customer.statement())
+                customer.statement(statement))
     }
 
 }

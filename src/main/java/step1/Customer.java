@@ -25,7 +25,7 @@ class Customer {
 
     ;
 
-    public String statement() {
+    public String statement(ConsoleStatement statement) {
         return getHeader() + getFigures() + getTail();
     }
 
