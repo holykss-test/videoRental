@@ -69,14 +69,14 @@ You earned 1 frequent renter pointers""",
     @Test
     fun statementForNewReleaseFor() {
 
-        val rental = createRegularRentalFor(THREE_DAYS)
+        val rental = createRentalFor(Movie.NEW_RELEASE, THREE_DAYS)
         customer.addRental(rental)
 
         assertEquals(
                 """Rental Record for NAME_NOT_IMPORTANT
-	3.5()
-Amount owed is 3.5
-You earned 1 frequent renter pointers""",
+	9.0()
+Amount owed is 9.0
+You earned 2 frequent renter pointers""",
                 customer.statement())
     }
 
