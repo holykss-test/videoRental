@@ -40,6 +40,8 @@ You earned 1 frequent renter pointers""",
                 customer.statement(statement))
     }
 
+    private val statement = ConsoleStatement()
+
     /**
      * 여기까지 왔으면 테스트 이름을 정할 수 있다.
      */
