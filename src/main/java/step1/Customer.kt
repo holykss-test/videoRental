@@ -2,13 +2,13 @@ package step1
 
 import java.util.ArrayList
 
-internal class Customer(val name: String) {
+class Customer(val name: String) {
     private val rentals = ArrayList<Rental>()
 
-    private val header: String
+    val header: String
         get() = "Rental Record for $name\n"
 
-    private val tail: String
+    val tail: String
         get() {
             var result = "Amount owed is " + totalAmount.toString() + "\n"
             result += "You earned " + frequentRenterPoints.toString() + " frequent renter pointers"
@@ -24,7 +24,7 @@ internal class Customer(val name: String) {
             return totalAmount
         }
 
-    private val figures: String
+    val figures: String
         get() {
             var result = ""
             for (rental in rentals) {
@@ -47,7 +47,7 @@ internal class Customer(val name: String) {
     }
 
     fun statement(statement: ConsoleStatement): String {
-        return header + figures + tail
-    }
 
+        return statement.getStatement(this)
+    }
 }

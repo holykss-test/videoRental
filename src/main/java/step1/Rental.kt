@@ -1,6 +1,6 @@
 package step1
 
-internal class Rental(private val movie: Movie, val daysRented: Int) {
+class Rental(private val movie: Movie, val daysRented: Int) {
 
     // determine amounts for each line
     val price: Double
