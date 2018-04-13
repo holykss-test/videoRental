@@ -137,6 +137,9 @@ public class CustomerTest {
 		if (priceCode == Movie.NEW_RELEASE) {
 			return new NewReleaseMovie(title);
 		}
+		if (priceCode == Movie.CHILDRENS) {
+			return new ChildrensMovie(title);
+		}
 		return new Movie(title, priceCode);
 	}
 
