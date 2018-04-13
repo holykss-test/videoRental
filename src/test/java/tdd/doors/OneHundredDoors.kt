@@ -16,7 +16,7 @@ class OneHundredDoors(val size: Int) {
             return doorStates;
         }
 
-        return listOf(false)
+        return doorStates
     }
 
     fun pass() {
