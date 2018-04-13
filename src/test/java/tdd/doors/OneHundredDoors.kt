@@ -11,11 +11,20 @@ class OneHundredDoors(val doorCount: Int) {
 
     fun status(): List<Boolean> {
         if (pass == 1) {
-            for (i in 0..doorCount - 1)
-                doorStates[i] = !doorStates[i]
+            for (i in 1..doorCount)
+                doorStates[i-1] = !doorStates[i-1]
             return doorStates
         }
 
+        if(pass == 2) {
+            for (i in 1..doorCount)
+                doorStates[i-1] = !doorStates[i-1]
+
+            for (i in 2..doorCount step 2)
+                doorStates[i-1] = !doorStates[i-1]
+
+            return doorStates
+        }
         return doorStates
     }
 
