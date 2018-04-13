@@ -15,4 +15,9 @@ public class FizzBuzzTest {
     public void fizzbuzz_2_should_says_2() {
         assertEquals("2", FizzBuzz.says(2));
     }
+
+    @Test
+    public void fizzbuzz_3_should_says_FizzBuzz() {
+        assertEquals("FizzBuzz", FizzBuzz.says(3));
+    }
 }
