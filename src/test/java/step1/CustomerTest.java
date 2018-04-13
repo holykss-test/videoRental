@@ -2,6 +2,7 @@ package step1;
 
 import static org.junit.Assert.*;
 
+import org.jetbrains.annotations.NotNull;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -123,9 +124,17 @@ public class CustomerTest {
 
 	private Rental createRental(int priceCode, int daysRented) {
 		String title = null;
-		Movie movie = new Movie(title, priceCode);
+		Movie movie = createMovie(title, priceCode);
 		Rental rental = new Rental(movie, daysRented);
 		return rental;
 	}
-    
+
+	@NotNull
+	private Movie createMovie(String title, int priceCode) {
+    	if (priceCode == Movie.REGULAR) {
+    		return new RegularMovie(title);
+		}
+		return new Movie(title, priceCode);
+	}
+
 }
