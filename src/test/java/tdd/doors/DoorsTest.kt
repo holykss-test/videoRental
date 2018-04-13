@@ -1,50 +1,72 @@
 package tdd.doors
 
-import org.junit.Assert.assertArrayEquals
 import org.junit.Test
 import kotlin.test.assertEquals
 
 class DoorsTest {
     @Test
     fun oneDoorNoPass() {
-        val doors = OneHundredDoors(1)
+        val doors = Doors()
 
-        assertEquals(listOf(false), doors.status())
+        assertEquals(listOf(false), doors.getStates())
     }
 
     @Test
     fun oneDoorOnePass() {
-        val doors = OneHundredDoors(1)
+        val doors = Doors()
 
         doors.pass()
 
-        assertEquals(listOf(true), doors.status())
+        assertEquals(listOf(true), doors.getStates())
     }
 
     @Test
     fun twoDoorsNoPass() {
-        val doors = OneHundredDoors(2)
+        val doors = Doors(2)
 
-        assertEquals(listOf(false, false), doors.status())
+        assertEquals(listOf(false, false), doors.getStates())
     }
 
     @Test
     fun twoDoorsOnePass() {
-        val doors = OneHundredDoors(2)
+        val doors = Doors(2)
 
         doors.pass()
 
-        assertEquals(listOf(true, true), doors.status())
+        assertEquals(listOf(true, true), doors.getStates())
     }
 
     @Test
     fun twoDoorsTwoPass() {
-        val doors = OneHundredDoors(2)
+        val doors = Doors(2)
+
+        assertEquals(listOf(false, false), doors.getStates())
 
         doors.pass()
+        assertEquals(listOf(true, true), doors.getStates())
         doors.pass()
 
-        assertEquals(listOf(true, false), doors.status())
+        assertEquals(listOf(true, false), doors.getStates())
+    }
+
+    @Test
+    fun tenDoorsNoPass() {
+        val doors = Doors(10)
+
+        assertEquals(
+                listOf(
+                        false,
+                        false,
+                        false,
+                        false,
+                        false,
+                        false,
+                        false,
+                        false,
+                        false,
+                        false
+                ),
+                doors.getStates())
     }
 
 }
