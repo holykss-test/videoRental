@@ -5,7 +5,9 @@ public class FizzBuzz {
 
         if (number == 2)
             return "" + number;
+        if (number == 1)
+            return "" + number;
 
-        return "" + number;
+        throw new RuntimeException("허용되지 않은 입력 값");
     }
 }
