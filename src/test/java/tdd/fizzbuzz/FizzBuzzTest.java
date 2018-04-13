@@ -17,7 +17,7 @@ public class FizzBuzzTest {
     }
 
     @Test
-    public void fizzbuzz_3_should_says_FizzBuzz() {
-        assertEquals("FizzBuzz", FizzBuzz.says(3));
+    public void fizzbuzz_3_should_says_Fizz() {
+        assertEquals("Fizz", FizzBuzz.says(3));
     }
 }
