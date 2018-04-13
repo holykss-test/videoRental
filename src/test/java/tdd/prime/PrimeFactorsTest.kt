@@ -13,7 +13,7 @@ class PrimeFactorsTest {
 
     @Test
     fun primeFactorsOf4() {
-        assertEquals(listOf(4), PrimeFactors.of(4))
+        assertEquals(listOf(2, 2), PrimeFactors.of(4))
     }
 
 
