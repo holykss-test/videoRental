@@ -131,8 +131,11 @@ public class CustomerTest {
 
 	@NotNull
 	private Movie createMovie(String title, int priceCode) {
-    	if (priceCode == Movie.REGULAR) {
-    		return new RegularMovie(title);
+		if (priceCode == Movie.REGULAR) {
+			return new RegularMovie(title);
+		}
+		if (priceCode == Movie.NEW_RELEASE) {
+			return new NewReleaseMovie(title);
 		}
 		return new Movie(title, priceCode);
 	}
