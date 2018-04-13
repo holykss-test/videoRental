@@ -28,6 +28,15 @@ class DoorsTest {
         assertEquals(listOf(false, false), doors.status())
     }
 
+    @Test
+    fun twoDoorsOnePass() {
+        val doors = OneHundredDoors(2)
+
+        doors.pass()
+
+        assertEquals(listOf(true, true), doors.status())
+    }
+
 
 }
 

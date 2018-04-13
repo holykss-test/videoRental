@@ -1,19 +1,19 @@
 package tdd.doors
 
-class OneHundredDoors(val size: Int) {
+class OneHundredDoors(val doorCount: Int) {
     private val doorStates = ArrayList<Boolean>()
     private var pass = 0
 
     init {
-        for (i in 1..size)
+        for (i in 1..doorCount)
             doorStates.add(false)
     }
 
     fun status(): List<Boolean> {
-
         if (pass == 1) {
-            doorStates[0] = !doorStates[0];
-            return doorStates;
+            for (i in 0..doorCount - 1)
+                doorStates[i] = !doorStates[i]
+            return doorStates
         }
 
         return doorStates
